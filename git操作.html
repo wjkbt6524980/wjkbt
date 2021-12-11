@@ -105,9 +105,19 @@
     3.查看所有分支和当前所在分支或创建分支  git branch (这里写要创建的分支名称)
     4.切换分支 git checkout 分支名称
     5.创建一个新分支并切换到新分支上 git checkout -b 新分支名称
-    6.合并代码 完成分支代码功能并提交到本地仓库之后，切换到主路，再用 git merge pay(分支名)合并代码
+    6.合并代码 完成分支代码功能并提交到本地仓库之后，切换到主路，再用 git merge pay(pay是分支名)合并代码
     7.删除分支 删除时不能在那条分支上，git branch -d 分支名
-    
+    8.合并代码冲突 在两条路线上对同一个文件有不同修改合并时会产生冲突，要程序员自己解决，解决后输入命令git add . 和git commit -m ""
+    9.提交数据到远程仓库 -u 只在提交没有提交过的分支时要使用
+    git push -u 远程仓库别名（默认origin） 本地分支名称:远程分支名称（这个是改名的可有可无）
+    git push -u origin login:login
+    10.查看远程仓库分支 git remote show + 远程仓库名
+    11.从远程仓库，把对应的远程分支下载到本地仓库，保持本地分支和远程分支名称相同
+    git checkout 远程分支名称
+    git checkout login
+    要把下载的本地分支重新命名
+    git checkout -b 本地分支名称 远程仓库名称/远程分支名称
+    git checkout -b pay origin/login
 </body>
 
 </html>
