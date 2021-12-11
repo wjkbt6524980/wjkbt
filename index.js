@@ -4,6 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     div = [...div];
     console.log(div);
     div.forEach(function (i, item) {
-        i.innerHTML = '我是一只快乐的二狗'
+        i.innerHTML = '我再也不会快乐了'
     })
 })
