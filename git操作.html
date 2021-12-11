@@ -41,11 +41,11 @@
     (4)!开头表示取反
     (5)可以使用glob模式进行文件和文件夹的匹配，glob是简化了的正则表达式
     {
-        1.*匹配零个或多个任意字符
-        2.[abc]匹配任何一个列在方括号中的字符（一个a或一个b或一个c）
-        3.？只匹配一个任意字符
-        4.[0-9]表示两个字符范围内
-        5.**表示匹配任意中间目录（比如a/**/z表示a目录下的z，不管中间有多少个文件夹嵌套）
+    1.*匹配零个或多个任意字符
+    2.[abc]匹配任何一个列在方括号中的字符（一个a或一个b或一个c）
+    3.？只匹配一个任意字符
+    4.[0-9]表示两个字符范围内
+    5.**表示匹配任意中间目录（比如a/**/z表示a目录下的z，不管中间有多少个文件夹嵌套）
     }
     例如:
     # 忽略所有的 .a文件
@@ -53,7 +53,7 @@
 
     #但跟踪所有的lib.a,即使你在前面忽略了.a文件
     !lib.a
-         
+
     #只忽略当前目录下的 TODO文件，而不忽略 subdir/TODO
     /TODO
 
@@ -70,7 +70,7 @@
     9.查看提交历史
     #按时间先后顺序列出所有的提交历史，最近的提交排在最上面
     git log
-    
+
     #只展示最新的两条提交历史，数字可以按需进行填写
     git log -2
 
@@ -80,44 +80,44 @@
     #在一行上展示最近两条提交历史的信息，并自定义输出的格式
     # %h提交的简写哈希值 %an作者名字 %ar作者修订日期，按几小时前这样显示 %s提交说明
     git log -2 --pretty=format:"%h | %an | %ar | %s"
-    
+
     10.回退到指定的版本
-    #在一行上展示所有的提交历史 
+    #在一行上展示所有的提交历史
     git log --pretty=oneline
 
     #使用git reset-hard <>命令，根据指定的提交id回退到指定版本
-    git reset --hard <>
+        git reset --hard <>
 
-    #在旧版本中使用git reflog --pretty=oneline命令，查看命令操作的历史版本
-    git reflog --pretty=oneline
+            #在旧版本中使用git reflog --pretty=oneline命令，查看命令操作的历史版本
+            git reflog --pretty=oneline
 
-    #再次根据id号用reset回退到想要的版本
-    git reset --hard <>
-
-
+            #再次根据id号用reset回退到想要的版本
+            git reset --hard <>
 
 
 
 
-    GitHub操作
-    1.提交到GitHub git push
-    2.克隆到本地  git clone
-    3.查看所有分支和当前所在分支或创建分支  git branch (这里写要创建的分支名称)
-    4.切换分支 git checkout 分支名称
-    5.创建一个新分支并切换到新分支上 git checkout -b 新分支名称
-    6.合并代码 完成分支代码功能并提交到本地仓库之后，切换到主路，再用 git merge pay(pay是分支名)合并代码
-    7.删除分支 删除时不能在那条分支上，git branch -d 分支名
-    8.合并代码冲突 在两条路线上对同一个文件有不同修改合并时会产生冲突，要程序员自己解决，解决后输入命令git add . 和git commit -m ""
-    9.提交数据到远程仓库 -u 只在提交没有提交过的分支时要使用
-    git push -u 远程仓库别名（默认origin） 本地分支名称:远程分支名称（这个是改名的可有可无）
-    git push -u origin login:login
-    10.查看远程仓库分支 git remote show + 远程仓库名
-    11.从远程仓库，把对应的远程分支下载到本地仓库，保持本地分支和远程分支名称相同
-    git checkout 远程分支名称
-    git checkout login
-    要把下载的本地分支重新命名
-    git checkout -b 本地分支名称 远程仓库名称/远程分支名称
-    git checkout -b pay origin/login
+
+
+                GitHub操作
+                1.提交到GitHub git push
+                2.克隆到本地 git clone
+                3.查看所有分支和当前所在分支或创建分支 git branch (这里写要创建的分支名称)
+                4.切换分支 git checkout 分支名称
+                5.创建一个新分支并切换到新分支上 git checkout -b 新分支名称
+                6.合并代码 完成分支代码功能并提交到本地仓库之后，切换到主路，再用 git merge pay(pay是分支名)合并代码
+                7.删除分支 删除时不能在那条分支上，git branch -d 分支名
+                8.合并代码冲突 在两条路线上对同一个文件有不同修改合并时会产生冲突，要程序员自己解决，解决后输入命令git add . 和git commit -m ""
+                9.提交数据到远程仓库 -u 只在提交没有提交过的分支时要使用
+                git push -u 远程仓库别名（默认origin） 本地分支名称:远程分支名称（这个是改名的可有可无）
+                git push -u origin login:login
+                10.查看远程仓库分支 git remote show + 远程仓库名
+                11.从远程仓库，把对应的远程分支下载到本地仓库，保持本地分支和远程分支名称相同
+                git checkout 远程分支名称
+                git checkout login
+                要把下载的本地分支重新命名
+                git checkout -b 本地分支名称 远程仓库名称/远程分支名称
+                git checkout -b pay origin/login
 </body>
 
 </html>
