@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    在现有目录中初始化git仓库:
+    1.在项目目录中打开git bush，执行git init命令将当前目录转化为git仓库
+    git init 会创建一个名为.git的隐藏目录
+
+    2.git status查看文件状态，文件分为未跟踪，已被管理（未修改，已修改，已暂存）；
+    git status -s; 以精简的方式显示文件基本状态
+
+    3.git add index.html 将未被跟踪的文件跟踪
+    git add . 将所有未被跟踪的跟踪并放入暂存区，将以跟踪并且已修改的文件放到暂存区 ；
+
+    4.git commit -m "本次提交消息的进一步描述"，将所有暂存区提交到仓库
+    git commit -a -m "将所有被跟踪过的文件跳过暂存区存到仓库"，被移除后（等于没有被跟踪过）需要重新跟踪才能用commit -a -m；
+
+    5.撤销对文件的修改，用仓库里的文件覆盖掉工作区文件
+    git chechout -- index.html
+
+    6.取消暂存的文件
+    git reset HEAD index.html
+    git reset HEAD . 取消所有暂存文件
+
+    7.从工作区和仓库同时移除文件
+    git rm -f index.js
+    只从仓库移除文件，保留工作区的文件
+    git rm --cached index.html
+
+    8.总有文件无需纳入git管理，因此为了忽略文件，创建一个名为.gitignore的配置文件，文件规范如下
+    (1)#开头的是注释
+    (2)/结尾的是目录
+    (3)/开头防止递归
+    (4)!开头表示取反
+    (5)可以使用glob模式进行文件和文件夹的匹配，glob是简化了的正则表达式
+    {
+        1.*匹配零个或多个任意字符
+        2.[abc]匹配任何一个列在方括号中的字符（一个a或一个b或一个c）
+        3.？只匹配一个任意字符
+        4.[0-9]表示两个字符范围内
+        5.**表示匹配任意中间目录（比如a/**/z表示a目录下的z，不管中间有多少个文件夹嵌套）
+    }
+    例如:
+    # 忽略所有的 .a文件
+    *.a
+
+    #但跟踪所有的lib.a,即使你在前面忽略了.a文件
+    !lib.a
+         
+    #只忽略当前目录下的 TODO文件，而不忽略 subdir/TODO
+    /TODO
+
+    #忽略任何目录下名为build的文件夹
+    build/
+
+    #忽略当前文件下一层的以.txt结尾的文件
+    doc/*.txt
+
+    #忽略doc/ 目录及其所有子目录下的.pdf 文件
+    doc/**/*.pdf
+
+
+    9.查看提交历史
+    #按时间先后顺序列出所有的提交历史，最近的提交排在最上面
+    git log
+    
+    #只展示最新的两条提交历史，数字可以按需进行填写
+    git log -2
+
+    #在一行上展示最近两条提交历史的信息,去掉2就是所有历史在一行上
+    git log -2 --pretty=online
+
+    #在一行上展示最近两条提交历史的信息，并自定义输出的格式
+    # %h提交的简写哈希值 %an作者名字 %ar作者修订日期，按几小时前这样显示 %s提交说明
+    git log -2 --pretty=format:"%h | %an | %ar | %s"
+    
+    10.回退到指定的版本
+    #在一行上展示所有的提交历史 
+    git log --pretty=oneline
+
+    #使用git reset-hard <>命令，根据指定的提交id回退到指定版本
+    git reset --hard <>
+
+    #在旧版本中使用git reflog --pretty=oneline命令，查看命令操作的历史版本
+    git reflog --pretty=oneline
+
+    #再次根据id号用reset回退到想要的版本
+    git reset --hard <>
+</body>
+
+</html>
